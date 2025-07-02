@@ -1,134 +1,96 @@
-# TravelTrucks - Camper Rental Service
+# 🚐 TravelTrucks - Karavan Kiralama Servisi
 
-A modern web application for searching and renting campers with a wide selection of vehicles and convenient filtering system.
+Geniş araç yelpazesi ve kullanışlı filtreleme sistemi ile kamp araçlarını arayıp kiralayabileceğiniz modern bir web uygulaması.
 
-## 🚀 Features
+---
 
-- **Homepage** with attractive hero banner and call-to-action button
-- **Campers catalog** with filtering by location, vehicle type, and equipment
-- **Detailed camper page** with interactive photo gallery (lightbox), reviews, and booking form
-- **Advanced filtering system** with multiple criteria selection
-- **Favorites list** with localStorage persistence (survives page refresh)
-- **"Load More" functionality** for progressive loading of camper cards
-- **Responsive design** for desktop, tablet, and mobile devices
-- **Toast notifications** for successful booking confirmations
+## 🚀 Özellikler
 
-## 🛠 Technologies
+- **Ana Sayfa** 
+- **Karavan Kataloğu** – Konum, araç tipi ve ekipmana göre filtreleme
+- **Detay Sayfası** – Etkileşimli fotoğraf galerisi (ışık kutusu), yorumlar ve rezervasyon formu
+- **Gelişmiş Filtreleme Sistemi** – Çoklu kriter seçimi ile arama
+- **Favoriler Listesi** – localStorage kullanımı ile kalıcı favoriler
+- **"Daha Fazla Yükle" Özelliği** – Kademeli olarak karavan kartlarının yüklenmesi
+- **Mobil Uyumlu Tasarım** – Masaüstü, tablet ve mobil cihazlara duyarlı
+- **Toast Bildirimleri** – Başarılı rezervasyon sonrası bilgilendirme
 
-- **React** - UI library with modern hooks
-- **Redux Toolkit** - modern state management solution
-- **React Router** - routing with nested routes support
-- **Axios** - HTTP client for API requests
-- **CSS Modules** - scoped styling for components
-- **React Toastify** - beautiful user notifications
-- **Vite** - fast build tool with hot reload
-- **PropTypes** - component props validation
+---
 
-## 📦 Installation and Setup
+## 🛠 Teknolojiler
 
-### System Requirements
+- **React** – Modern UI bileşenleri ve hook kullanımı
+- **Redux Toolkit** – Modern durum yönetim çözümü
+- **React Router v6** – Nested routes destekli yönlendirme
+- **Axios** – API istekleri için HTTP istemcisi
+- **CSS Modules** – Bileşen bazlı stil yönetimi
+- **React Toastify** – Bildirim sistemi
+- **Vite** – Hızlı geliştirme ortamı
+- **PropTypes** – Bileşen doğrulama
 
-- Node.js version 18.0.0 or higher
-- npm version 8.0.0 or higher (or yarn)
+---
 
-### Step-by-step Guide
+## 📦 Kurulum ve Başlatma
 
-1. **Clone the repository:**
+### Adım Adım Kurulum
+
+1. **Projeyi klonlayın:**
 
    ```bash
    git clone https://github.com/your-username/travel-trucks.git
    cd travel-trucks
-   ```
-
-2. **Install dependencies:**
-
-   ```bash
    npm install
-   # or if you're using yarn
-   yarn install
-   ```
-
-3. **Start development server:**
-
-   ```bash
    npm run dev
-   # or
-   yarn dev
-   ```
 
-4. **Open browser at:** `http://localhost:5173`
+## 🎯 Uygulama Özellikleri
+**Durum Yönetimi (Redux Toolkit)
+Projede 3 ana slice kullanılır:**
 
-### Additional Commands
+**campers** – Karavan listesi, seçilen karavan, yüklenme durumu
 
-- **Build for production:**
+**filters** – Aktif arama filtreleri (konum, araç tipi, ekipman)
 
-  ```bash
-  npm run build
-  ```
+**favorites** – Favorilere eklenen karavan ID’leri (localStorage ile saklanır)
 
-- **Preview production build:**
+## API Entegrasyonu
+Tüm API istekleri src/services/api.js içinde yönetilir
 
-  ```bash
-  npm run preview
-  ```
+Axios kullanılır
 
-- **Lint code:**
-  ```bash
-  npm run lint
-  ```
+Hata yönetimi ve yüklenme durumları uygulanır
 
-## 🎯 Implementation Features
+Filtreleme ve sayfalama desteklenir
 
-### State Management (Redux Toolkit)
+## Bileşen Mimarisi
+Her bileşen kendi klasöründe: .jsx ve .module.css dosyalarıyla
 
-The project uses modern Redux Toolkit with three main slices:
+Fonksiyonel bileşenler ve React hook’ları kullanılır
 
-- **`campers`** - stores campers list, current camper, loading state
-- **`filters`** - active search filters (location, vehicle type, equipment)
-- **`favorites`** - list of favorite camper IDs (persisted in localStorage)
+PropTypes ile parametre kontrolü sağlanır
 
-### API Integration
+DRY prensibine uygun kod yapısı
 
-- All API requests are separated into a service layer (`src/services/api.js`)
-- Uses axios for HTTP requests
-- Implements error handling and loading states
-- Supports filtering and pagination
+## Yönlendirme
+React Router v6 ile route yönetimi
 
-### Component Architecture
+Nested route ve lazy load destekli yapı
 
-- Each component has its own folder with JSX file and CSS module
-- Uses functional components with hooks
-- PropTypes for props validation
-- DRY principle - avoiding code duplication
+404 sayfası için yönlendirme
 
-### Routing
+SPA desteği için vercel.json yapılandırması
 
-- React Router v6 with nested routes support
-- Lazy loading for pages optimization
-- 404 error handling (redirect to home)
-- SPA support in production (vercel.json)
+## 🌐 API Bilgileri
+**Base URL**:
+https://66b1f8e71ca8ad33d4f5f63e.mockapi.io
 
-## 🌐 API
+**GET /campers** – Tüm karavanları getirir
 
-The project uses MockAPI for demonstration purposes:
+**GET /campers/:id** – Seçilen karavanın detaylarını getirir
 
-**Base URL:** `https://66b1f8e71ca8ad33d4f5f63e.mockapi.io`
+**Filtreleme (Frontend’de uygulanır)**
 
-**Endpoints:**
+**Konum:** Büyük/küçük harf duyarsız
 
-- `GET /campers` - get list of all campers
-- `GET /campers/:id` - get details of specific camper
+**Araç Tipi**: panelTruck, fullyIntegrated, alcove
 
-**Filtering:** Implemented on frontend with support for:
-
-- Location search (case-insensitive)
-- Vehicle type filtering (panelTruck, fullyIntegrated, alcove)
-- Equipment filtering (AC, transmission, kitchen, TV, bathroom)
-
-## 🚀 Deployment
-
-The project is ready for deployment on cloud platforms.
-
-**Important:** Includes `vercel.json` for proper client-side routing.
-
-**Thank you for using TravelTrucks! 🚐✨**
+**Ekipman**: Klima, otomatik vites, mutfak, TV, banyo vb.
