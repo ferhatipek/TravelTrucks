@@ -94,3 +94,6 @@ https://66b1f8e71ca8ad33d4f5f63e.mockapi.io
 **Araç Tipi**: panelTruck, fullyIntegrated, alcove
 
 **Ekipman**: Klima, otomatik vites, mutfak, TV, banyo vb.
+
+## Deployment
+**Vercel Link:** https://travel-trucks-sp32-hig3kbvbk-ferhats-projects-d86a054e.vercel.app/
